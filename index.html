@@ -413,7 +413,7 @@
         <div class="footer-signup">
           <p class="footer-text">Підпишіться на розсилку</p>
           <form class="footer-form">
-            <input class="footer-input" type="usermail" name="usermail" placeholder="E-mail" />
+            <input class="footer-input" type="email" name="usermail" placeholder="E-mail" />
             <button class="third-btn btn">
               Підписатися
               <svg class="send-icon" width="24" height="24">
@@ -496,22 +496,20 @@
           </div>
 
           <label class="check-lable">
-            <div class="check-policy">
-              <input
-                type="checkbox"
-                name="user-policy"
-                value="true"
-                class="input-check visually-hidden"
-                id="user-policy"
-              />
-              <span class="check-box">
-                <svg class="check-icon" width="11" height="8">
-                  <use href="./images/icons.svg#icon-check"></use>
-                </svg>
-              </span>
-              Погоджуюся з розсилкою та приймаю
-              <a class="check-link link" href="#">Умови договору</a>
-            </div>
+            <input
+              type="checkbox"
+              name="user-policy"
+              value="true"
+              class="input-check visually-hidden"
+              id="user-policy"
+            />
+            <span class="check-box">
+              <svg class="check-icon" width="11" height="8">
+                <use href="./images/icons.svg#icon-check"></use>
+              </svg>
+            </span>
+            Погоджуюся з розсилкою та приймаю
+            <a class="check-link link" href="#">Умови договору</a>
           </label>
 
           <button type="submit" class="secondary-btn btn">Відправити</button>
@@ -519,5 +517,17 @@
       </div>
     </div>
     <script src="./js/modal.js"></script>
+
+    <script>
+      (() => {
+        document.querySelector('.modal-form').addEventListener('submit', e => {
+          e.preventDefault();
+
+          new FormData(e.currentTarget).forEach((value, name) => console.log(`${name}: ${value}`));
+
+          e.currentTarget.reset();
+        });
+      })();
+    </script>
   </body>
 </html>
